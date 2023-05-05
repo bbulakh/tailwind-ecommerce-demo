@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/dist/css/tailwind-ecommerce-30a37ffc03aac455c1c98ccb86dd2236.css">
+    <script type="text/javascript" src="/assets/dist/js/script.js"></script>
+    <link rel="stylesheet" href="/assets/dist/css/tailwind-ecommerce-8721cb028b6583e414c2d1c5704e576b.css">
     <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -29,20 +30,22 @@
       </a>
 
       <div class="md:hidden">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="h-8 w-8"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
+        <button id="burgerButton">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-8 w-8"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
       </div>
 
       <form class="hidden h-9 w-2/5 items-center border md:flex">
@@ -67,14 +70,14 @@
           placeholder="Search"
         />
 
-        <button class="ml-auto h-full bg-yellow-400 px-4 hover:bg-yellow-300">
+        <button class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300">
           Search
         </button>
       </form>
 
       <div class="hidden gap-3 md:!flex">
         <a
-          href="Wishlist.html"
+          href="wishlist.html"
           class="flex cursor-pointer flex-col items-center justify-center"
         >
           <svg
@@ -149,17 +152,136 @@
     </header>
     <!-- /Header -->
 
+    <!-- Burger menu  -->
+    <section
+      id="burgerMenu"
+      onclick="menuToggle"
+      class="absolute left-0 right-0 z-50 hidden h-screen w-full bg-white"
+    >
+      <div class="mx-auto">
+        <div class="mx-auto flex w-full justify-center gap-3 py-4">
+          <a
+            href="wishlist.html"
+            class="flex cursor-pointer flex-col items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-6 w-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+              />
+            </svg>
+
+            <p class="text-xs">Wishlist</p>
+          </a>
+
+          <a
+            href="cart.html"
+            class="flex cursor-pointer flex-col items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="h-6 w-6"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <p class="text-xs">Cart</p>
+          </a>
+
+          <a
+            href="account-page.html"
+            class="relative flex cursor-pointer flex-col items-center justify-center"
+          >
+            <span class="absolute bottom-[33px] right-1 flex h-2 w-2">
+              <span
+                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex h-2 w-2 rounded-full bg-red-500"
+              ></span>
+            </span>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-6 w-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+              />
+            </svg>
+
+            <p class="text-xs">Account</p>
+          </a>
+        </div>
+
+        <form class="my-4 mx-5 flex h-9 items-center border">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="mx-3 h-4 w-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
+
+          <input
+            class="hidden w-11/12 outline-none md:block"
+            type="search"
+            placeholder="Search"
+          />
+
+          <button class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300">
+            Search
+          </button>
+        </form>
+        <ul class="text-center font-medium">
+          <li class="py-2"><a href="index.html">Home</a></li>
+          <li class="py-2"><a href="catalog.html">Catalog</a></li>
+          <li class="py-2"><a href="about-us.html">About Us</a></li>
+          <li class="py-2"><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </section>
+    <!-- /Burger menu  -->
+
     <!-- Nav bar -->
     <!-- hidden on small devices -->
 
-    <nav class="bg-blue-900">
+    <nav class="relative bg-violet-900">
       <div
         class="mx-auto hidden h-12 w-full max-w-[1200px] items-center md:flex"
       >
-        <div
+        <button
+          id="menuButton"
           class="ml-5 flex h-full w-40 cursor-pointer items-center justify-center bg-yellow-500"
         >
-          <a class="flex justify-around" href="#">
+          <div class="flex justify-around" href="#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -175,9 +297,9 @@
               />
             </svg>
 
-            All cathegories
-          </a>
-        </div>
+            All categories
+          </div>
+        </button>
 
         <div class="mx-7 flex gap-8">
           <a
@@ -221,6 +343,232 @@
     </nav>
     <!-- /Nav bar -->
 
+    <!-- Menu  -->
+    <section
+      id="menu"
+      onclick="menuToggle"
+      class="absolute left-0 right-0 z-10 hidden w-full border-b border-r border-l bg-white"
+    >
+      <div class="mx-auto flex max-w-[1200px] py-10">
+        <div class="w-[300px] border-r">
+          <ul class="px-5">
+            <li
+              class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400"
+            >
+              <img
+                width="15px"
+                height="15px"
+                src="../assets/images/bed.svg"
+                alt="Bedroom icon"
+              />
+              Bedroom
+              <span class="ml-auto"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+            </li>
+
+            <li
+              class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
+            >
+              <img
+                width="15px"
+                height="15px"
+                src="../assets/images/sleep.svg"
+                alt="bedroom icon"
+              />
+              Matrass
+              <span class="ml-auto"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+            </li>
+
+            <li
+              class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
+            >
+              <img
+                width="15px"
+                height="15px"
+                src="../assets/images/outdoor.svg"
+                alt="bedroom icon"
+              />
+              Outdoor
+              <span class="ml-auto"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+            </li>
+
+            <li
+              class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
+            >
+              <img
+                width="15px"
+                height="15px"
+                src="../assets/images/sofa.svg"
+                alt="bedroom icon"
+              />
+              Sofa
+              <span class="ml-auto"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+            </li>
+
+            <li
+              class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
+            >
+              <img
+                width="15px"
+                height="15px"
+                src="../assets/images/kitchen.svg"
+                alt="bedroom icon"
+              />
+              Kitchen
+              <span class="ml-auto"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+            </li>
+
+            <li
+              class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
+            >
+              <img
+                width="15px"
+                height="15px"
+                src="../assets/images/food.svg"
+                alt="Food icon"
+              />
+              Living room
+              <span class="ml-auto"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-4 w-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex w-full justify-between">
+          <div class="flex gap-6">
+            <div class="mx-5">
+              <p class="font-medium text-gray-500">BEDS</p>
+              <ul class="text-sm leading-8">
+                <li><a href="product-overview.html">Italian bed</a></li>
+                <li><a href="product-overview.html">Queen-size bed</a></li>
+                <li><a href="product-overview.html">Wooden craft bed</a></li>
+                <li><a href="product-overview.html">King-size bed</a></li>
+              </ul>
+            </div>
+
+            <div class="mx-5">
+              <p class="font-medium text-gray-500">LAMPS</p>
+              <ul class="text-sm leading-8">
+                <li><a href="product-overview.html">Italian Purple Lamp</a></li>
+                <li><a href="product-overview.html">APEX Lamp</a></li>
+                <li><a href="product-overview.html">PIXAR lamp</a></li>
+                <li><a href="product-overview.html">Ambient Nightlamp</a></li>
+              </ul>
+            </div>
+
+            <div class="mx-5">
+              <p class="font-medium text-gray-500">BEDSIDE TABLES</p>
+              <ul class="text-sm leading-8">
+                <li><a href="product-overview.html">Purple Table</a></li>
+                <li><a href="product-overview.html">Easy Bedside</a></li>
+                <li><a href="product-overview.html">Soft Table</a></li>
+                <li><a href="product-overview.html">Craft Table</a></li>
+              </ul>
+            </div>
+
+            <div class="mx-5">
+              <p class="font-medium text-gray-500">SPECIAL</p>
+              <ul class="text-sm leading-8">
+                <li><a href="product-overview.html">Humidifier</a></li>
+                <li><a href="product-overview.html">Bed Cleaner</a></li>
+                <li><a href="product-overview.html">Vacuum Cleaner</a></li>
+                <li><a href="product-overview.html">Pillow</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- /Menu  -->
     <!-- breadcrumbs  -->
 
     <nav class="mx-auto mt-4 max-w-[1200px] px-5">
@@ -254,9 +602,10 @@
     <section
       class="container mx-auto max-w-[1200px] py-5 lg:flex lg:flex-row lg:py-10"
     >
+      <h2 class="mx-auto px-5 text-2xl font-bold md:hidden">Delivery Method</h2>
       <!-- form  -->
       <section class="grid w-full max-w-[1200px] grid-cols-1 gap-3 px-5 pb-10">
-        <table class="table-fixed">
+        <table class="hidden lg:table">
           <thead class="h-16 bg-neutral-100">
             <tr>
               <th>ADDRESS</th>
@@ -270,11 +619,11 @@
         <div class="py-5">
           <form class="grid w-full grid-cols-1 gap-3 lg:grid-cols-2" action="">
             <div class="flex w-full justify-between gap-2">
-              <div class="flex w-full flex-col border">
-                <div class="flex bg-yellow-400 px-4 py-2">
+              <div class="flex w-full cursor-pointer flex-col border">
+                <div class="flex bg-amber-400 px-4 py-2">
                   <input
                     class="outline-yellow-400"
-                    type="checkbox"
+                    type="radio"
                     placeholder="Sarah Johnson"
                   />
 
@@ -282,7 +631,7 @@
                 </div>
 
                 <div class="px-4 py-3">
-                  <p class="pb-3 font-bold text-blue-900">FREE</p>
+                  <p class="pb-3 font-bold text-violet-900">FREE</p>
                   <p class="text-sm">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
                     nulla dolorum obcaecati, sequi, quidem quo eligendi soluta
@@ -292,19 +641,19 @@
               </div>
             </div>
 
-            <div class="flex w-full flex-col border">
-              <div class="flex bg-yellow-400 px-4 py-2">
+            <div class="flex w-full cursor-pointer flex-col border">
+              <div class="flex bg-amber-400 px-4 py-2">
                 <input
                   class="outline-yellow-400"
-                  type="checkbox"
+                  type="radio"
                   placeholder="Sarah Johnson"
                 />
 
-                <p class="ml-3 font-bold">SDEK, 3 hours</p>
+                <p class="ml-3 cursor-pointer font-bold">SDEK, 3 hours</p>
               </div>
 
               <div class="px-4 py-3">
-                <p class="pb-3 font-bold text-blue-900">&dollar;300</p>
+                <p class="pb-3 font-bold text-violet-900">&dollar;300</p>
                 <p class="text-sm">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
                   nulla dolorum obcaecati, sequi, quidem quo eligendi soluta
@@ -313,19 +662,19 @@
               </div>
             </div>
 
-            <div class="flex w-full flex-col border">
-              <div class="flex bg-yellow-400 px-4 py-2">
+            <div class="flex w-full cursor-pointer flex-col border">
+              <div class="flex bg-amber-400 px-4 py-2">
                 <input
                   class="outline-yellow-400"
-                  type="checkbox"
+                  type="radio"
                   placeholder="Sarah Johnson"
                 />
 
                 <p class="ml-3 font-bold">UPS, Secure Delivery</p>
               </div>
 
-              <div class="px-4 py-3">
-                <p class="pb-3 font-bold text-blue-900">&dollar;50</p>
+              <div class="cursor-pointer px-4 py-3">
+                <p class="pb-3 font-bold text-violet-900">&dollar;50</p>
                 <p class="text-sm">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
                   nulla dolorum obcaecati, sequi, quidem quo eligendi soluta
@@ -334,19 +683,19 @@
               </div>
             </div>
 
-            <div class="flex w-full flex-col border">
-              <div class="flex bg-yellow-400 px-4 py-2">
+            <div class="flex w-full cursor-pointer flex-col border">
+              <div class="flex bg-amber-400 px-4 py-2">
                 <input
                   class="outline-yellow-400"
-                  type="checkbox"
+                  type="radio"
                   placeholder="Sarah Johnson"
                 />
 
                 <p class="ml-3 font-bold">Pochta Rossii, 12 years</p>
               </div>
 
-              <div class="px-4 py-3">
-                <p class="pb-3 font-bold text-blue-900">&dollar;3000</p>
+              <div class="cursor-pointer px-4 py-3">
+                <p class="pb-3 font-bold text-violet-900">&dollar;3000</p>
                 <p class="text-sm">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
                   nulla dolorum obcaecati, sequi, quidem quo eligendi soluta
@@ -358,12 +707,21 @@
         </div>
 
         <div class="flex w-full items-center justify-between">
-          <a href="catalog.html" class="text-sm text-blue-900"
+          <a href="catalog.html" class="hidden text-sm text-violet-900 lg:block"
             >&larr; Back to the shop</a
           >
-          <a href="checkout-payment.html" class="bg-yellow-400 px-4 py-2"
-            >Choose Payment method</a
-          >
+
+          <div class="mx-auto flex justify-center gap-2 lg:mx-0">
+            <a
+              href="checkout-address.html"
+              class="bg-purple-900 px-4 py-2 text-white"
+              >Previous step</a
+            >
+
+            <a href="checkout-payment.html" class="bg-amber-400 px-4 py-2"
+              >Payment method</a
+            >
+          </div>
         </div>
       </section>
       <!-- /form  -->
@@ -398,20 +756,22 @@
 
     <!-- Cons bages -->
 
-    <section class="mx-auto mb-10 flex justify-center gap-3">
+    <section
+      class="container mx-auto my-8 flex flex-col justify-center gap-3 lg:flex-row"
+    >
       <!-- 1 -->
 
       <div
-        class="my-8 flex flex-col border-2 border-yellow-400 px-5 py-2 lg:flex-row lg:items-center"
+        class="mx-5 flex flex-row items-center justify-center border-2 border-yellow-400 py-4 px-5"
       >
-        <div class="mx-auto">
+        <div class="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="h-6 w-6 text-blue-900 lg:mr-2"
+            class="h-6 w-6 text-violet-900 lg:mr-2"
           >
             <path
               stroke-linecap="round"
@@ -421,10 +781,8 @@
           </svg>
         </div>
 
-        <div class="flex flex-col justify-center lg:ml-6">
-          <h3 class="text-center text-xs font-bold lg:text-left lg:text-sm">
-            Free Delivery
-          </h3>
+        <div class="ml-6 flex flex-col justify-center">
+          <h3 class="text-left text-xs font-bold lg:text-sm">Free Delivery</h3>
           <p class="text-light text-center text-xs lg:text-left lg:text-sm">
             Orders from $200
           </p>
@@ -434,16 +792,16 @@
       <!-- 2 -->
 
       <div
-        class="my-8 flex flex-col border-2 border-yellow-400 px-5 py-2 lg:h-20 lg:flex-row lg:items-center"
+        class="mx-5 flex flex-row items-center justify-center border-2 border-yellow-400 py-4 px-5"
       >
-        <div class="mx-auto">
+        <div class="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="h-6 w-6 text-blue-900 lg:mr-2"
+            class="h-6 w-6 text-violet-900 lg:mr-2"
           >
             <path
               stroke-linecap="round"
@@ -453,11 +811,9 @@
           </svg>
         </div>
 
-        <div class="flex flex-col justify-center lg:ml-6">
-          <h3 class="text-center text-xs font-bold lg:text-left lg:text-sm">
-            Money returns
-          </h3>
-          <p class="text-light text-center text-xs lg:text-left lg:text-sm">
+        <div class="ml-6 flex flex-col justify-center">
+          <h3 class="text-left text-xs font-bold lg:text-sm">Money returns</h3>
+          <p class="text-light text-left text-xs lg:text-sm">
             30 Days guarantee
           </p>
         </div>
@@ -466,16 +822,16 @@
       <!-- 3 -->
 
       <div
-        class="my-8 flex flex-col border-2 border-yellow-400 px-5 py-2 lg:flex-row lg:items-center"
+        class="mx-5 flex flex-row items-center justify-center border-2 border-yellow-400 py-4 px-5"
       >
-        <div class="mx-auto">
+        <div class="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="h-6 w-6 text-blue-900 lg:mr-2"
+            class="h-6 w-6 text-violet-900 lg:mr-2"
           >
             <path
               stroke-linecap="round"
@@ -485,11 +841,9 @@
           </svg>
         </div>
 
-        <div class="flex flex-col justify-center lg:ml-6">
-          <h3 class="text-center text-xs font-bold lg:text-left lg:text-sm">
-            24/7 Supports
-          </h3>
-          <p class="text-light text-center text-xs lg:text-left lg:text-sm">
+        <div class="ml-6 flex flex-col justify-center">
+          <h3 class="text-left text-xs font-bold lg:text-sm">24/7 Supports</h3>
+          <p class="text-light text-left text-xs lg:text-sm">
             Consumer support
           </p>
         </div>
@@ -585,7 +939,7 @@
     <!-- Mobile Footer  -->
 
     <footer
-      class="mx-auto flex w-full max-w-[1200px] justify-center bg-blue-900 pb-10 md:hidden"
+      class="mx-auto flex w-full max-w-[1200px] justify-center bg-violet-900 pb-10 md:hidden"
     >
       <div>
         <img
@@ -601,7 +955,7 @@
 
     <!-- Payment and copyright  -->
 
-    <section class="h-11 bg-yellow-400">
+    <section class="h-11 bg-amber-400">
       <div
         class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2"
       >
